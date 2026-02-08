@@ -1,0 +1,1 @@
+{  "project_name": "My Project",  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('.', '-') }}",  "repository_name": "",  "user_email": "",  "authors": "",  "description": "{{ cookiecutter.project_slug }} project",  "use_current_directory":"y"}

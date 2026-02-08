@@ -1,0 +1,89 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.1.0"
+description = ""
+authors =  {{ cookiecutter.authors.split(",")|replace("'", '"') }}
+
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "allure-pytest (==2.15.0)",
+    "allure-python-commons (==2.15.0)",
+    "annotated-types (==0.7.0)",
+    "assertpy (==1.1)",
+    "attrs (==25.3.0)",
+    "backports-datetime-fromisoformat (==2.0.3)",
+    "certifi (==2025.8.3)",
+    "charset-normalizer (==3.4.2)",
+    "colorama (==0.4.6)",
+    "distconfig3 (==1.0.1)",
+    "environs (==14.3.0)",
+    "exceptiongroup (==1.3.0)",
+    "faker (==37.6.0)",
+    "idna (==3.10)",
+    "iniconfig (==2.1.0)",
+    "marshmallow (==4.0.1)",
+    "packaging (==25.0)",
+    "pluggy (==1.6.0)",
+    "pydantic (==2.11.7)",
+    "pydantic-core (==2.33.2)",
+    "pydentic (==0.0.1.dev3)",
+    "pygments (==2.19.2)",
+    "pyhamcrest (==2.1.0)",
+    "pytelegrambotapi (==4.29.1)",
+    "pytest (==8.4.1)",
+    "pytest-telegram-notifier (==1.4.0)",
+    "python-dotenv (==1.1.1)",
+    "python-stdnum (==2.1)",
+    "pyyaml (==6.0.2)",
+    "retrying (==1.4.2)",
+    "rootpath (==0.1.0)",
+    "six (==1.17.0)",
+    "telebot (==0.0.5)",
+    "toml (==0.10.2)",
+    "tomli (==2.2.1)",
+    "typing-inspection (==0.4.1)",
+    "typing-extensions (==4.14.1)",
+    "tzdata (==2025.2)",
+    "urllib3 (==2.5.0)",
+    "vyper-config (==1.2.1)",
+    "watchdog (==6.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "pytest-asyncio (>=1.2.0,<2.0.0)",
+    "curlify2 (>=2.0.0,<3.0.0)",
+    "data (>=0.4,<0.5)",
+    "structlog (>=25.5.0,<26.0.0)",
+    "restcodegen (>=1.2.0,<2.0.0)",
+    "python-dateutil (>=2.9.0.post0,<3.0.0)",
+    "aiohttp (>=3.13.2,<4.0.0)",
+    "aiohttp-retry (>=2.9.1,<3.0.0)",
+]
+
+[tool.poetry.dependencies]
+
+
+[tool.ruff]
+line-length = 120
+extend-exclude = [
+    #"checkers",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = """
+    --telegram-notifier
+    --alluredir=./allure-results
+    --telegram-notifier-config-file=telegram-notifier-config.ini
+"""
+
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[dependency-groups]
+lint = [
+    "ruff (>=0.13.3,<0.14.0)",
+    "mypy (>=1.18.2,<2.0.0)"
+]

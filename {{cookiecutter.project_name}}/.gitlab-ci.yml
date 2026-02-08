@@ -1,0 +1,1 @@
+include:  - project: 'YK/common-pipe'    file: '/qa/.common-qa-pipeline.yml'variables:  SWAGGER_URL: "" # Укажи ссылку на Swagger。json
